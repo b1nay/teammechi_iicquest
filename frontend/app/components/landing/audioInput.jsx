@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -13,23 +13,23 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
 
 const audioSchema = z.object({
-  audio: z.instanceof(FileList, "Please provide a valid audio file."),
-});
+  audio: z.array(z.instanceof(File)).nonempty("Please select an audio file."),
+})
 
 export default function AudioInput() {
   const form = useForm({
     resolver: zodResolver(audioSchema),
     defaultValues: {
-      audio: null,
+      audio: [],  // Changed default value to an empty array to match schema
     },
-  });
+  })
 
   function onSubmit(data) {
-    console.log("data: ", data);
+    console.log("data: ", data)
   }
 
   return (
@@ -42,7 +42,12 @@ export default function AudioInput() {
             <FormItem>
               <FormLabel>Audio File</FormLabel>
               <FormControl>
-                <Input type="file" multiple accept="audio/*" {...field} />
+                <Input
+                  type="file"
+                  multiple
+                  accept="audio/*"
+                  onChange={(e) => field.onChange(Array.from(e.target.files))} // Convert FileList to Array
+                />
               </FormControl>
               <FormDescription>Select an audio file to upload.</FormDescription>
               <FormMessage />
@@ -52,5 +57,5 @@ export default function AudioInput() {
         <Button type="submit">Send</Button>
       </form>
     </Form>
-  );
+  )
 }
