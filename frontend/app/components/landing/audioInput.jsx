@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 
 const audioSchema = z.object({
-  audio: z.instanceof(File, "Please provide a valid audio file."),
+  audio: z.instanceof(FileList, "Please provide a valid audio file."),
 });
 
 export default function AudioInput() {
