@@ -1,10 +1,8 @@
-"use client"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -13,24 +11,43 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 const audioSchema = z.object({
-  audio: z.array(z.instanceof(File)).nonempty("Please select an audio file."),
-})
+  audio: z
+    .instanceof(File)
+    .refine((val) => val instanceof File, { message: "Please select an audio file." }),
+});
 
 export default function AudioInput() {
   const form = useForm({
     resolver: zodResolver(audioSchema),
     defaultValues: {
-      audio: [],  // Changed default value to an empty array to match schema
+      audio: null,
     },
-  })
+  });
 
-  function onSubmit(data) {
-    console.log("data: ", data)
-  }
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('file', data.audio); // Append the selected audio file, 'file' should match the name used in your Flask app
+
+    try {
+      const res = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await res.json();
+      console.log(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <Form {...form}>
@@ -44,18 +61,17 @@ export default function AudioInput() {
               <FormControl>
                 <Input
                   type="file"
-                  multiple
                   accept="audio/*"
-                  onChange={(e) => field.onChange(Array.from(e.target.files))} // Convert FileList to Array
+                  onChange={(e) => field.onChange(e.target.files[0])} // Capture the first file
                 />
               </FormControl>
               <FormDescription>Select an audio file to upload.</FormDescription>
-              <FormMessage />
+              <FormMessage>{form.formState.errors.audio?.message}</FormMessage>
             </FormItem>
           )}
         />
         <Button type="submit">Send</Button>
       </form>
     </Form>
-  )
+  );
 }

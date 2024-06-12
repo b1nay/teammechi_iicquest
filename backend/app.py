@@ -1,15 +1,21 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import torch
 import librosa
 import numpy as np
 from transformers import HubertForSequenceClassification, Wav2Vec2FeatureExtractor, pipeline
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Load the model and feature extractor
 model = HubertForSequenceClassification.from_pretrained("superb/hubert-large-superb-er")
 feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("superb/hubert-large-superb-er")
 classifier = pipeline("audio-classification", model="superb/hubert-large-superb-er")
+
+@app.route('/test', methods=['GET'])
+def test():
+    return jsonify({"message": "Hello, World!"})
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -37,8 +43,12 @@ def predict():
             predicted_ids = torch.argmax(logits, dim=-1)
             labels = [model.config.id2label[_id] for _id in predicted_ids.tolist()]
         
+
+        #printing the labels defined/trained in the model
+        print("Model labels:", model.config.id2label)
+
         # Alternatively using the pipeline
-        results = classifier(speech_np, top_k=5)
+        results = classifier(speech_np, top_k=5)    
         
         return jsonify({
             "predicted_emotion": labels[0],
