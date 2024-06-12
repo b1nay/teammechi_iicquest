@@ -1,12 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
+import Header from "./components/header";
+import Hero from "./components/landing/hero";
 
 export default function Home() {
   return (
 
-    <div className="w-full mx-auto flex flex-col  items-center justify-center h-screen ">
-      <h1 className="text-3xl font-bold">SM-Care</h1>
+
+    <div className="">
+      <Header />
+      <Hero />
 
     </div>
-    
   );
 }
