@@ -3,29 +3,60 @@
 import React, { useState } from "react";
 import AudioInput from "@/components/audioInput";
 import Image from "next/image";
+import generateEmotionList from "@/utils/generateEmotionList";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null); // Optional state to store the response from the server
 
-  const handleSend = async () => {
+  const handleSend = async (data) => {
     setLoading(true);
+    const formData = new FormData();
+    formData.append("file", data.audio); // Append the selected audio file, 'file' should match the name used in your Flask app
+
     try {
-      // Send the audio file to the server
-      const res = await fetch("https://jsonplaceholder.typicode.com/todos/1", {
-        method: "GET",
+      const res = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        body: formData,
       });
-      if (res.ok) {
-        const result = await res.json();
-        console.log(result);
-    setData(result.title);
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
       }
+
+        const result = await res.json();
+
+
+      //   const ress = {
+      //     predicted_emotion: "hap",
+      //     top_5_predictions: [
+      //       {
+      //         label: "hap",
+      //         score: 0.7928280830383301,
+      //       },
+      //       {
+      //         label: "neu",
+      //         score: 0.20054923595783308,
+      //       },
+      //       {
+      //         label: "sad",
+      //         score: 0.006119635887444019,
+      //       },
+      //       {
+      //         label: "ang",
+      //         score: 0.00020300208416301757,
+      //       },
+      //     ],
+      //   };
+
+      const extendedEmotionList = generateEmotionList(result);
+
+      setData(extendedEmotionList);
+      console.log(extendedEmotionList);
     } catch (error) {
-      console.error("API call failed:", error);
-    } finally {
-     
-      setLoading(false);
+      console.error("Error:", error);
     }
+    setLoading(false);
   };
 
   return (
@@ -33,17 +64,38 @@ const Page = () => {
       {!loading && !data ? (
         <AudioInput handlesend={handleSend} />
       ) : data ? (
-        <p>
-            <Image
-                src="https://imgs.search.brave.com/HDd-gFfC4kDbXbYNzWU1Z2AhHdaIrV24YXeeD6o5U3g/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L2hpZ2gvaGFwcHkt/ZmFjZS1lbW9qaS1w/ODI3Yzd4OTY3dG1h/Mmw1LmdpZg.gif"
-                alt="Picture of the author"
-                width={600}
-                height={600}    
-            />
-            {data}</p>
+        <div className="text-center flex flex-col justify-center items-center">
+          <h1 className="text-2xl font-bold text-sky-500">
+            Predicted Health Status
+          </h1>
+          <Image src={data[0].imgurl} alt="emotion" width={300} height={300} />
+          <p
+            className={`text-2xl font-bold ${
+              data[0].emotion === "Happy" ? "text-green-600" : "text-black"
+            }`}
+          >
+            {`${data[0].level} ${data[0].emotion}`}
+          </p>
+        </div>
       ) : (
         <p>Loading...</p>
       )}
+      {/* {!loading && !data ? (
+        <AudioInput handlesend={handleSend} />
+      ) : data ? (
+        <div>
+          <h1>Other data</h1>
+          <p>{data.predicted_emotion}</p>
+          {data.top_5_predictions.map((prediction, index) => (
+            <div key={index}>
+              <p>{prediction.label}</p>
+              <p>{prediction.score}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )} */}
     </div>
   );
 };

@@ -34,25 +34,8 @@ export default function AudioInput(props) {
   });
 
   const onSubmit = async (data) => {
-    props.handlesend();
-    // const formData = new FormData();
-    // formData.append("file", data.audio); // Append the selected audio file, 'file' should match the name used in your Flask app
-
-    // try {
-    //   const res = await fetch("http://localhost:5000/predict", {
-    //     method: "POST",
-    //     body: formData,
-    //   });
-
-    //   if (!res.ok) {
-    //     throw new Error("Network response was not ok");
-    //   }
-
-    //   const result = await res.json();
-    //   console.log(result);
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
+    props.handlesend(data);
+   
   };
 
   return (
@@ -91,7 +74,6 @@ export default function AudioInput(props) {
           <Button
             className="p-8 bg-sky-500 hover:bg-sky-600 flex flex-row gap-4 w-2/5 text-xl transition-all ease-in-out"
             type="submit"
-            onClick={props.handlesend}
           >
             Send
           </Button>

@@ -832,6 +832,18 @@ video {
   .text-secondary-foreground {
   color: hsl(var(--secondary-foreground));
 }
+  .text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+  .text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+  .text-sky-500 {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+}
   .underline-offset-4 {
   text-underline-offset: 4px;
 }
