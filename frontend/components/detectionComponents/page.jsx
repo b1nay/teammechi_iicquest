@@ -8,9 +8,7 @@ import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 
 const ResultPage = ({ data, handleNext }) => {
-
-
-    const router = useRouter();
+  const router = useRouter();
   console.log("from the fsdff", data);
   const detectedEmotion =
     data[0].emotion == "Happy"
@@ -27,7 +25,7 @@ const ResultPage = ({ data, handleNext }) => {
 
   const handlediagnoseclick = () => {
     router.push("/diagnose");
-  }
+  };
 
   return (
     <div className="flex flex-row justify-around w-full ">
@@ -52,11 +50,18 @@ const ResultPage = ({ data, handleNext }) => {
             Detect Next
           </Button>
         ) : (
-          <Button onClick={handlediagnoseclick} className="bg-sky-500 hover:bg-sky-600 p-6 text-xl">Diagnose</Button>
+          <Button
+            onClick={handlediagnoseclick}
+            className="bg-sky-500 hover:bg-sky-600 p-6 text-xl"
+          >
+            Diagnose
+          </Button>
         )}
       </div>
       <div className="w-3/6 flex flex-col items-center text-center">
-        <h1 className="text-2xl w-full font-bold text-sky-500">Degree of Emotions</h1>
+        <h1 className="text-2xl w-full font-bold text-sky-500">
+          Degree of Emotions
+        </h1>
         <div className="w-4/6 grid grid-cols-2 ">
           {data[0].top_5_predictions.map((prediction, index) => (
             <div
@@ -68,10 +73,15 @@ const ResultPage = ({ data, handleNext }) => {
                 percent={`${prediction.score * 100}`}
                 trailWidth={6}
                 strokeWidth={6}
-                strokeColor={
-                    `${prediction.label === "Happy"? "#34eb59" : prediction.label === "Neutral" ? "#0EA5E9" : prediction.label === "Sad" ? "#964B00" : "#f0140c"}`
-                }
-             
+                strokeColor={`${
+                  prediction.label === "Happy"
+                    ? "#34eb59"
+                    : prediction.label === "Neutral"
+                    ? "#0EA5E9"
+                    : prediction.label === "Sad"
+                    ? "#964B00"
+                    : "#f0140c"
+                }`}
                 className="w-4/6"
               />
             </div>

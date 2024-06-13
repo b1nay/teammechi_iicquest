@@ -28,7 +28,7 @@ export  const data = [
       "symptoms": [
         "Headaches or muscle pain",
         "Difficulty concentrating",
-        "Fatigue",
+        "Fatigue",  
         "Changes in appetite",
         "Irritability or anger",
         "Difficulty sleeping",
