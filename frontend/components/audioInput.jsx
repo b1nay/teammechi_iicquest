@@ -15,7 +15,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Pointer } from "lucide-react";
 
 const audioSchema = z.object({
   audio: z

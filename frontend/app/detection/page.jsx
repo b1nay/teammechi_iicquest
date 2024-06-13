@@ -20,41 +20,41 @@ const Page = () => {
     formData.append("file", data.audio); // Append the selected audio file, 'file' should match the name used in your Flask app
 
     try {
-      // const res = await fetch("http://localhost:5000/predict", {
-      //   method: "POST",
-      //   body: formData,
-      // });
+      const res = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        body: formData,
+      });
 
-      // if (!res.ok) {
-      //   throw new Error("Network response was not ok");
-      // }
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
 
-      // const result = await res.json();
+      const result = await res.json();
 
-      const ress = {
-        predicted_emotion: "ang",
-        top_5_predictions: [
-          {
-            label: "hap",
-            score: 0.006119635887444019,
-          },
-          {
-            label: "neu",
-            score: 0.20054923595783308,
-          },
-          {
-            label: "sad",
-            score:  0.00020300208416301757,
-          },
-          {
-            label: "ang",
-            score:0.7928280830383301,
-          },
-        ],
-      };
+      // const ress = {
+      //   predicted_emotion: "ang",
+      //   top_5_predictions: [
+      //     {
+      //       label: "hap",
+      //       score: 0.006119635887444019,
+      //     },
+      //     {
+      //       label: "neu",
+      //       score: 0.20054923595783308,
+      //     },
+      //     {
+      //       label: "sad",
+      //       score:  0.00020300208416301757,
+      //     },
+      //     {
+      //       label: "ang",
+      //       score:0.7928280830383301,
+      //     },
+      //   ],
+      // };
 
 
-      const extendedEmotionList = generateEmotionList(ress);
+      const extendedEmotionList = generateEmotionList(result);
 
       setData(extendedEmotionList);
       console.log(extendedEmotionList);

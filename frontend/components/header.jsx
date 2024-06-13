@@ -12,9 +12,10 @@ const Header = () => {
         <Image src='/Logo.png' alt="logo" width={60} height={60} priority={true} />
         <h1 className="text-xl font-bold">SM-Care</h1>
       </div>
-      <div className="flex items-center space-x-4 font-bold ">
+      <div className="flex items-center space-x-6 font-bold mr-24">
         <Link className="hover:font-light transition-all ease-in-out" href="/">Home</Link>
-        <Link href="/link">Links</Link>
+        <Link className="hover:font-light transition-all ease-in-out" href="/detection">Detect</Link>
+        <Link className="hover:font-light transition-all ease-in-out" href="/diagnose">Diagnose</Link>
       </div>
      
     </nav>
