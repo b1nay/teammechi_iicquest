@@ -15,7 +15,7 @@ import {Button} from "./ui/button";
     <div className="w-full mx-auto flex flex-row gap-32 items-center justify-around h-[80vh]">
       <div className="w-3/6 flex justify-end">
         <Image
-          src="/hero.png"
+          src="/heroo.png"
           alt="Picture of the author"
           width={600}
           height={600}
