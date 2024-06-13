@@ -21,13 +21,12 @@ import {Button} from "./ui/button";
           height={600}
         />
       </div>
-      <div className="flex flex-col gap-16 w-3/6  ">
+      <div className="flex flex-col gap-12 w-3/6  ">
         <h1 className="text-4xl font-bold text-sky-500">
           Detect Mental Health Status
         </h1>
         <p className="text-xl">
-          Detect mental health status  by recording your voice and get the result and seek help professionals
-          instantly.
+        Students' Mental Care is a platform that helps students to detect their mental health status and seek help from professionals instantly.
         </p>
 
         <div className="flex flex-row">
@@ -40,8 +39,8 @@ import {Button} from "./ui/button";
           </Button>
         </div>
         <hr className="w-2/5 h-0.5  bg-gray-300 border-0 rounded " />
-        <div className="flex flex-row gap-4 text-xl items-center">
-          <span>already detected?</span>
+        <div className="flex flex-row gap-4 text-md items-center">
+          <span>Already Detected?</span>
           <span
             className="text-sky-500 underline cursor-pointer"
             onClick={() => {
