@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Logo } from "@/public/Logo.png";
-import { act } from "react";
+
 import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {

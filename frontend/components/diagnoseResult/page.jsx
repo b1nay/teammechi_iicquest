@@ -1,8 +1,14 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const DiagnoseResult = ({ detectedDisorder }) => {
+  const router = useRouter();
+  const handleconsultclick = () => {
+    router.push("/consult");
+  }
+  
   return (
     <div className="w-full flex flex-row items-center  h-[70vh]">
         <div className="w-3/6 flex items-end">
@@ -22,7 +28,7 @@ const DiagnoseResult = ({ detectedDisorder }) => {
         <p className="text-3xl font-bold">{detectedDisorder}</p>
       </div>
       <div>
-        <Button className="bg-sky-500 hover:bg-sky-600 p-6 text-xl">
+        <Button onClick={handleconsultclick} className="bg-sky-500 hover:bg-sky-600 p-6 text-xl">
           Consult With Professionals
         </Button>
       </div>

@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-import Header from "../components/header";
-import Hero from "@/components/hero";
+import Hero from "../components/hero";
+
+
 
 export default function Home() {
   return (

@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import TextInput from "./textInput";
-import { HeroImg } from "@/public/hero.png";
-import { Button } from "@/components/ui/button";
 import { Mic } from "lucide-react";
 import { useRouter } from "next/navigation";
+import {Button} from "./ui/button";
 
-const Hero = () => {
+ const Hero = () => {
   const router = useRouter();
 
   const handleStartClick = () => {
@@ -24,9 +22,11 @@ const Hero = () => {
         />
       </div>
       <div className="flex flex-col gap-16 w-3/6  ">
-        <h1 className="text-4xl font-bold text-sky-500">Detect Mental Health Status</h1>
+        <h1 className="text-4xl font-bold text-sky-500">
+          Detect Mental Health Status
+        </h1>
         <p className="text-xl">
-          Detect your emotion by recording your voice and get the result
+          Detect mental health status  by recording your voice and get the result and seek help professionals
           instantly.
         </p>
 
@@ -42,13 +42,14 @@ const Hero = () => {
         <hr className="w-2/5 h-0.5  bg-gray-300 border-0 rounded " />
         <div className="flex flex-row gap-4 text-xl items-center">
           <span>already detected?</span>
-          <span className="text-sky-500 underline cursor-pointer"
-          onClick={() => {
-            router.push("/diagnose");}
-          }
-          
-          >Diagnose</span>
-       
+          <span
+            className="text-sky-500 underline cursor-pointer"
+            onClick={() => {
+              router.push("/diagnose");
+            }}
+          >
+            Diagnose
+          </span>
         </div>
       </div>
     </div>
@@ -56,3 +57,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
