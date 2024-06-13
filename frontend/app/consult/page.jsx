@@ -12,6 +12,7 @@ const Page = () => {
       qualification: "Qualification: MBBS, MD (Neuropsychiatrist)",
       expertise: "Expertise: Substance Abuse",
       clinic: "Clinic: HAMS Hospital",
+      phone: "Phone: 01-1234567",
     },
     {
       image: Psych,
@@ -19,6 +20,7 @@ const Page = () => {
       qualification: "Qualification: MBBS, MD (Neuropsychiatrist)",
       expertise: "Expertise: Substance Abuse",
       clinic: "Clinic: HAMS Hospital",
+      phone: "Phone: 01-1234567",
     },
     {
       image: Psych,
@@ -26,6 +28,7 @@ const Page = () => {
       qualification: "Qualification: MBBS, MD (Neuropsychiatrist)",
       expertise: "Expertise: Substance Abuse",
       clinic: "Clinic: HAMS Hospital",
+      phone: "Phone: 01-1234567",
     },
   ];
 
@@ -36,6 +39,7 @@ const Page = () => {
       qualification: "Qualification: Ph.D. (Anxiety)",
       expertise: "Expertise: Anxiety Disorder",
       clinic: "Clinic: HAMS Hospital",
+      phone: "Phone: 01-1234567",
     },
     {
       image: Psych,
@@ -43,6 +47,7 @@ const Page = () => {
       qualification: "Qualification: MBBS, MD (Neuropsychiatrist)",
       expertise: "Expertise: Substance Abuse",
       clinic: "Clinic: HAMS Hospital",
+      phone: "Phone: 01-1234567",
     },
     {
       image: Therapist,
@@ -50,6 +55,7 @@ const Page = () => {
       qualification: "Qualification: MBBS, MD (Neuropsychiatrist)",
       expertise: "Expertise: Substance Abuse",
       clinic: "Clinic: HAMS Hospital",
+      phone: "Phone: 01-1234567",
     },
   ];
 
@@ -79,6 +85,7 @@ const Page = () => {
 
               <span>{doctor.clinic}</span>
               <span>{doctor.expertise}</span>
+              <span>{doctor.phone}</span>
               <button className="bg-sky-500 text-white w-1/2 p-1 rounded-full mt-2 hover:bg-sky-600">
                 Book A Session
               </button>
@@ -110,6 +117,8 @@ const Page = () => {
 
               <span>{doctor.clinic}</span>
               <span>{doctor.expertise}</span>
+              <span>{doctor.phone}</span>
+
               <button className="bg-sky-500 text-white w-1/2 p-1 rounded-full mt-2 hover:bg-sky-600">
                 Book A Session
               </button>
