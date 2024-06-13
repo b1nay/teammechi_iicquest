@@ -61,7 +61,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[70vh] w-5/6 mx-auto">
+    <div className="flex justify-center items-start h-[70vh] w-5/6 mx-auto">
       {!loading && !data ? (
         <AudioInput handlesend={handleSend} />
       ) : data ? (

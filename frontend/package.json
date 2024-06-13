@@ -21,6 +21,7 @@
     "lucide-react": "^0.394.0",
     "next": "14.2.4",
     "next-cloudinary": "^6.6.2",
+    "rc-progress": "^4.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.5",
