@@ -953,6 +953,9 @@ video {
   .font-normal {
   font-weight: 400;
 }
+  .font-semibold {
+  font-weight: 600;
+}
   .leading-none {
   line-height: 1;
 }
