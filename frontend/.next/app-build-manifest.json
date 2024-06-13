@@ -11,15 +11,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/detection/page": [
+    "/consult/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/detection/page.js"
-    ],
-    "/diagnose/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/diagnose/page.js"
+      "static/chunks/app/consult/page.js"
     ]
   }
 }
