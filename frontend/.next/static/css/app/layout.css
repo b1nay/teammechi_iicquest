@@ -638,6 +638,15 @@ video {
   .h-\[80vh\] {
   height: 80vh;
 }
+  .h-screen {
+  height: 100vh;
+}
+  .h-4 {
+  height: 1rem;
+}
+  .h-full {
+  height: 100%;
+}
   .min-h-\[80px\] {
   min-height: 80px;
 }
@@ -665,11 +674,23 @@ video {
   .w-full {
   width: 100%;
 }
+  .flex-1 {
+  flex: 1 1 0%;
+}
+  .transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+  .cursor-pointer {
+  cursor: pointer;
+}
   .flex-row {
   flex-direction: row;
 }
   .flex-col {
   flex-direction: column;
+}
+  .items-start {
+  align-items: flex-start;
 }
   .items-center {
   align-items: center;
@@ -710,6 +731,12 @@ video {
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+  .overflow-hidden {
+  overflow: hidden;
+}
+  .overflow-y-hidden {
+  overflow-y: hidden;
+}
   .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -718,6 +745,9 @@ video {
 }
   .rounded-md {
   border-radius: calc(var(--radius) - 2px);
+}
+  .rounded-full {
+  border-radius: 9999px;
 }
   .border {
   border-width: 1px;
@@ -750,6 +780,10 @@ video {
   .bg-sky-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+  .bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
   .p-20 {
   padding: 5rem;
@@ -814,11 +848,19 @@ video {
   .leading-none {
   line-height: 1;
 }
+  .text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
   .text-destructive {
   color: hsl(var(--destructive));
 }
   .text-destructive-foreground {
   color: hsl(var(--destructive-foreground));
+}
+  .text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
 }
   .text-muted-foreground {
   color: hsl(var(--muted-foreground));
@@ -832,17 +874,12 @@ video {
   .text-secondary-foreground {
   color: hsl(var(--secondary-foreground));
 }
-  .text-green-600 {
-  --tw-text-opacity: 1;
-  color: rgb(22 163 74 / var(--tw-text-opacity));
-}
-  .text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
   .text-sky-500 {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+  .underline {
+  text-decoration-line: underline;
 }
   .underline-offset-4 {
   text-underline-offset: 4px;

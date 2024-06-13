@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import AudioInput from "@/components/audioInput";
 import Image from "next/image";
 import generateEmotionList from "@/utils/generateEmotionList";
+import ResultPage from "@/components/detectionComponents/page";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
@@ -15,41 +16,41 @@ const Page = () => {
     formData.append("file", data.audio); // Append the selected audio file, 'file' should match the name used in your Flask app
 
     try {
-      const res = await fetch("http://localhost:5000/predict", {
-        method: "POST",
-        body: formData,
-      });
+      // const res = await fetch("http://localhost:5000/predict", {
+      //   method: "POST",
+      //   body: formData,
+      // });
 
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
+      // if (!res.ok) {
+      //   throw new Error("Network response was not ok");
+      // }
 
-        const result = await res.json();
+      //   const result = await res.json();
 
 
-      //   const ress = {
-      //     predicted_emotion: "hap",
-      //     top_5_predictions: [
-      //       {
-      //         label: "hap",
-      //         score: 0.7928280830383301,
-      //       },
-      //       {
-      //         label: "neu",
-      //         score: 0.20054923595783308,
-      //       },
-      //       {
-      //         label: "sad",
-      //         score: 0.006119635887444019,
-      //       },
-      //       {
-      //         label: "ang",
-      //         score: 0.00020300208416301757,
-      //       },
-      //     ],
-      //   };
+        const ress = {
+          predicted_emotion: "hap",
+          top_5_predictions: [
+            {
+              label: "hap",
+              score: 0.7928280830383301,
+            },
+            {
+              label: "neu",
+              score: 0.20054923595783308,
+            },
+            {
+              label: "sad",
+              score: 0.006119635887444019,
+            },
+            {
+              label: "ang",
+              score: 0.00020300208416301757,
+            },
+          ],
+        };
 
-      const extendedEmotionList = generateEmotionList(result);
+      const extendedEmotionList = generateEmotionList(ress);
 
       setData(extendedEmotionList);
       console.log(extendedEmotionList);
@@ -64,19 +65,9 @@ const Page = () => {
       {!loading && !data ? (
         <AudioInput handlesend={handleSend} />
       ) : data ? (
-        <div className="text-center flex flex-col justify-center items-center">
-          <h1 className="text-2xl font-bold text-sky-500">
-            Predicted Health Status
-          </h1>
-          <Image src={data[0].imgurl} alt="emotion" width={300} height={300} />
-          <p
-            className={`text-2xl font-bold ${
-              data[0].emotion === "Happy" ? "text-green-600" : "text-black"
-            }`}
-          >
-            {`${data[0].level} ${data[0].emotion}`}
-          </p>
-        </div>
+        <ResultPage data={data} />
+        
+      
       ) : (
         <p>Loading...</p>
       )}

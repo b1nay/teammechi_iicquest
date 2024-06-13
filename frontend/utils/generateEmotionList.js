@@ -24,11 +24,12 @@ export default function generateEmotionList(data) {
   )?.score;
 
   if (!predictedEmotionScore) {
+    console.log("nto foudnfdofd")
     return [{ emotion: predicted_emotion, level: "Unknown" }];
   }
 
   const level = getEmotionLevel(predictedEmotionScore);
-  return [{emotion:  emotionLabels[predicted_emotion] || predicted_emotion, level, score: predictedEmotionScore, imgurl: imageUrl[predicted_emotion]}];
+  return [{emotion:  emotionLabels[predicted_emotion] || predicted_emotion, level, score: predictedEmotionScore, imgurl: imageUrl[predicted_emotion], top_5_predictions: top_5_predictions.map((prediction) => ({ ...prediction, label: emotionLabels[prediction.label] || prediction.label }))}];
 }
 
 

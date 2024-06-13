@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import TextInput from "../app/components/landing/textInput";
+import TextInput from "./textInput";
 import { HeroImg } from "@/public/hero.png";
 import { Button } from "@/components/ui/button";
 import { Mic } from "lucide-react";
@@ -34,20 +34,17 @@ const Hero = () => {
           </Button>
         </div>
         <hr className="w-2/5 h-0.5  bg-gray-300 border-0 rounded " />
-        <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-row gap-4 text-xl items-center">
           <span>already detected?</span>
-          <Button className="p-5 bg-sky-500 hover:bg-sky-600 w-1/5 text-lg">
-            Diagnose
-          </Button>
+          <span className="text-sky-500 underline cursor-pointer"
+          onClick={() => {
+            router.push("/diagnose");}
+          }
+          
+          >Diagnose</span>
+       
         </div>
       </div>
-
-      {/* <div className="border-2 rounded-md p-20">
-        <AudioInput />
-      </div>
-      <div className="border-2 rounded-md p-20">
-       <TextInput />
-      </div> */}
     </div>
   );
 };
