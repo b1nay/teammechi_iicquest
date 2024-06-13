@@ -13,9 +13,6 @@ model = HubertForSequenceClassification.from_pretrained("superb/hubert-large-sup
 feature_extractor = Wav2Vec2FeatureExtractor.from_pretrained("superb/hubert-large-superb-er")
 classifier = pipeline("audio-classification", model="superb/hubert-large-superb-er")
 
-@app.route('/test', methods=['GET'])
-def test():
-    return jsonify({"message": "Hello, World!"})
 
 @app.route('/predict', methods=['POST'])
 def predict():
