@@ -34,7 +34,7 @@ export default function AudioInput(props) {
   });
 
   const onSubmit = async (data) => {
-    props.handlesend(data);
+    props.handleSend(data);
    
   };
 

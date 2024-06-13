@@ -39,14 +39,14 @@ export default function generateEmotionList(data) {
   ];
 }
 
-// const getEmotionLevel = (score) => {
-//   if (score >= 0.8) {
-//     return ["Extremely", ""];
-//   } else if (score >= 0.6) {
-//     return "Very";
-//   } else if (score >= 0.4) {
-//     return "Moderately";
-//   } else {
-//     return "Slightly";
-//   }
-// };
+const getEmotionLevel = (score) => {
+  if (score >= 0.8) {
+    return ["Extremely", ""];
+  } else if (score >= 0.6) {
+    return "Very";
+  } else if (score >= 0.4) {
+    return "Moderately";
+  } else {
+    return "Slightly";
+  }
+};
