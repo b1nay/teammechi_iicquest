@@ -1,8 +1,8 @@
 const imageUrl = {
-  hap: "https://imgs.search.brave.com/n1dyIfNd9kiO4hE5Et4UhuKq-g0aOS19qxBqdoJC4pk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC8yNC80Ni9l/bW9qaS1zbWlsaW5n/LWhhcHB5LXZlY3Rv/ci00MzYzMjQ0Ni5q/cGc",
-  ang: "https://imgs.search.brave.com/fPMetrRL1ktYow9XBi4KKBCEXg6D_0xJ8L0huTZY4QY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA3LzgyLzU3LzQx/LzM2MF9GXzc4MjU3/NDE5NV9YOEZtTWli/aTBxV2lER0ZSVXVM/bmthbnpsUE9CYTR3/bS5qcGc",
-  sad: "https://imgs.search.brave.com/SzcLOJPKjS9oLEkJ_0MN7cRQSlfPfJgM_IsC-3fwAAI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzg2LzE4LzI1/LzM2MF9GXzg2MTgy/NTQ2X0d5OTNoeW9D/RlhtSzBKbFhZbk9l/a3YwNXY2Nk1VbWZi/LmpwZw",
-  neu: "https://imgs.search.brave.com/SzcLOJPKjS9oLEkJ_0MN7cRQSlfPfJgM_IsC-3fwAAI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzg2LzE4LzI1/LzM2MF9GXzg2MTgy/NTQ2X0d5OTNoeW9D/RlhtSzBKbFhZbk9l/a3YwNXY2Nk1VbWZi/LmpwZw",
+  hap: "/happy.png",
+  ang: "/angry.png",
+  sad: "/sad.png",
+  neu: "/neutral.png",
 };
 
 const emotionLabels = {

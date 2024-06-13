@@ -44,7 +44,6 @@ export default function Page() {
     try {
       const response = await axios.post("/api/get-disorder", data);
 
-      
       setDetectedDisorder(response.data.disorder);
     } catch (error) {
       console.error("Error determining disorder: ", error);
@@ -55,7 +54,7 @@ export default function Page() {
 
   if (loading) {
     return (
-      <div className="flex flex-col text-center text-lg font-bold text-sky-500">
+      <div className="flex flex-col text-center text-lg font-bold mt-28 text-sky-500">
         <LifeLine color="#0EA5E9" size="medium" text="" textColor="" />
         <p>Analyzing Audio Data...</p>
       </div>
@@ -63,10 +62,7 @@ export default function Page() {
   }
 
   if (detectedDisorder) {
-    return (
-        <DiagnoseResult detectedDisorder={detectedDisorder} />  
-     
-    );
+    return <DiagnoseResult detectedDisorder={detectedDisorder} />;
   }
 
   return (

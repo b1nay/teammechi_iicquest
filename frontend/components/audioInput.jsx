@@ -44,12 +44,17 @@ export default function AudioInput(props) {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-2/3  space-y-6 flex flex-col items-center"
         >
+
+         
+
+
           <FormField
+          
             control={form.control}
             name="audio"
             render={({ field }) => (
-              <FormItem className="text-center">
-                <FormLabel>Audio File</FormLabel>
+              <FormItem className="text-center font-bold">
+                <FormLabel className="text-2xl">Audio File</FormLabel>
                 <FormControl>
                   <div className="relative flex flex-col">
                  

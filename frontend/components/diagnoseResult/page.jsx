@@ -1,16 +1,34 @@
-import React from 'react'
+import React from "react";
+import { Button } from "../ui/button";
+import Image from "next/image";
 
-const DiagnoseResult = ({detectedDisorder}) => {
+const DiagnoseResult = ({ detectedDisorder }) => {
   return (
-    <div className="flex items-center justify-center h-[70vh]">
-    <div className="flex flex-col items-center space-y-4">
-      <h1 className="text-2xl font-bold text-sky-500">Detected Disorder</h1>
-      <p className="text-xl font-semibold">{detectedDisorder}</p>
+    <div className="w-full flex flex-row items-center  h-[70vh]">
+        <div className="w-3/6 flex items-end">
+            <Image
+            src="/diagnose.jpg"
+            alt="Picture of the author"
+            width={600}
+            height={600}
+            />
+
+        </div>
+        <div className="flex flex-col gap-12">
+
+      
+      <div className="  space-y-8">
+        <h1 className="text-2xl font-bold text-sky-500">Detected Disorder</h1>
+        <p className="text-3xl font-bold">{detectedDisorder}</p>
+      </div>
+      <div>
+        <Button className="bg-sky-500 hover:bg-sky-600 p-6 text-xl">
+          Consult With Professionals
+        </Button>
+      </div>
+      </div>
     </div>
-  </div>
-    
   );
+};
 
-}
-
-export default DiagnoseResult
+export default DiagnoseResult;

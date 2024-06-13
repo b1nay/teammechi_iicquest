@@ -24,6 +24,12 @@ const Hero = () => {
         />
       </div>
       <div className="flex flex-col gap-16 w-3/6  ">
+        <h1 className="text-4xl font-bold text-sky-500">Detect Mental Health Status</h1>
+        <p className="text-xl">
+          Detect your emotion by recording your voice and get the result
+          instantly.
+        </p>
+
         <div className="flex flex-row">
           <Button
             className="p-8 bg-sky-500 hover:bg-sky-600 flex flex-row gap-4 w-2/5 text-xl"
